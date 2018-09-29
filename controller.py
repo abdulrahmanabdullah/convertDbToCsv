@@ -37,3 +37,13 @@ class Connection_:
             print(" Failed to  insert data : %s"%e)
         except Exception as e :
             print(" Some thing wrong:  %s"%e)
+
+    # TODO: check if user exists in my database .
+    def is_user_exists(self,student_name):
+        global connection
+        cursor_ = self.connection.cursor()
+        cursor_.execute(" select * from "+self.table_name+" where student_name = ?",(student_name,))
+        result = cursor_.fetchone()[1] # get student_name and compare with student_name param .
+        if result == student_name :
+            return True
+        return False

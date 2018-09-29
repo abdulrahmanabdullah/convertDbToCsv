@@ -8,8 +8,10 @@ class Student:
         self.student_id = self._generate_id()
 
 
+    #Private method , to set student id .
     def _generate_id(self):
         return uuid.uuid4().int & (1<<16)-1
-    # TODO: create private method , to set student id .
 
     # TODO: setatter and getatter for all atributte .
+    def get_student_name(self):
+        return self.student_name
